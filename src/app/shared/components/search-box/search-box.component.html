@@ -1,0 +1,6 @@
+<div class="px-2 py-4">
+    <input #txtInput type="text" class="w-full bg-white border border-slate-200 p-2 text-slate-950 focus:outline-none rounded" [placeholder]="placeholder" (keyup)="sendValue(txtInput.value)" [value]="initialValue" />
+</div>
+
+<!-- Ya no detonaré la función con el evento keyup.enter sino que lo haré con keyup -->
+<!-- (keyup.enter)="sendValue(txtInput.value) -->

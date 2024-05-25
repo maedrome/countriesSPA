@@ -1,0 +1,35 @@
+@if(countriesService.countries().length>0){
+    <table class="w-full table-auto border-separate border-spacing-0">
+        <thead class="text-left sticky top-0 backdrop-blur h-10">
+            <tr class="divide-gray-200 divide-y divide-y-reverse">
+                <th>#</th>
+                <th>Icon</th>
+                <th>Flag</th>
+                <th>Name</th>
+                <th>Capital</th>
+                <th>Population</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @for(country of countriesService.countries(); track country; let i = $index){
+            <tr class="even:bg-slate-100 divide-y divide-y-reverse divide-gray-200">
+                <td>{{i+1}}</td>
+                <td>{{country.flag}}</td>
+                <td><img width=25px [src]="country.flags.svg" [alt]="country.name.common"></td>
+                <td>{{country.name.common}}</td>
+                <td>{{country.capital}}</td>
+                <td>{{country.population | number}}</td>
+                <td><a class="text-blue-600 underline" [routerLink]="['../by',country.cca2]">Info</a></td>
+            </tr>  
+        }
+        </tbody>    
+    </table>
+}
+@else if(searchsCount>1){
+    <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+        <!-- <p class="font-bold">Warning</p> -->
+        <p>No countries to show.</p>
+    </div>
+}
+

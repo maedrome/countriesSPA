@@ -1,0 +1,8 @@
+<h1 class="px-2 pb-2 text-slate-900 text-xl font-bold">By Country</h1>
+<hr>
+<shared-search-box (search)="search($event)" placeholder="Search by country" [initialValue]="initialValue"></shared-search-box>
+<hr>
+<div class="mx-2 mt-4 overflow-y-auto h-[75vh]"><app-countries-table></app-countries-table></div>
+@if( countriesService.isLoading()){
+    <app-loading-pulse></app-loading-pulse>
+}
